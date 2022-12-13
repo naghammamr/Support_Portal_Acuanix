@@ -20,9 +20,6 @@ public class loginTest extends BaseTests {
         loginPage.setLoginData("sadmin@acuanix.com","P@ssw0rd");
         loginPage.clickLoginButton().click();
         System.out.println(loginPage.clickLoginButton().getText());
-
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(200));
-//        Assert.assertTrue(driver.getCurrentUrl().contains("/dashboard"));
     }
 
 

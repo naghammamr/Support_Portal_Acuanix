@@ -15,6 +15,7 @@ public class Menu {
     //Configurations Menu Header
     private By configurationsMenuHeaderLocator = By.xpath("//span[@class='ng-star-inserted'][contains(.,'Configurations')]");
     private By TicketPriorityMenuLocator = By.id("Ticket Priority");
+    private By SupportTypesMenuLocator = By.id("Support Types");
 
 
     public WebElement getConfigurationsMenuHeaderLocator() {
@@ -23,5 +24,9 @@ public class Menu {
 
     public WebElement getTicketPriorityMenuLocator() {
         return driver.findElement(TicketPriorityMenuLocator);
+    }
+
+    public WebElement getSupportTypeMenuLocator() {
+        return driver.findElement(SupportTypesMenuLocator);
     }
 }

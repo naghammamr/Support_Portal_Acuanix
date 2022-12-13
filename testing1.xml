@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Regression Suite">
     <parameter name="browser" value="chrome"/>
-    <test name="UAR Test" preserve-order="true">
+    <test name="UAT Test" preserve-order="true">
         <classes>
             <class name="tests.loginTest"/>
 
