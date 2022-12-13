@@ -10,25 +10,25 @@ public class T_PriorityTest extends BaseTests {
     Menu menu;
     PrioritiesPage prioritiesPage;
 
-    LoginPage loginPage;
+//    LoginPage loginPage;
+//
+//    @Test(priority = 1)
+//    public void superAdminCanLoginToThePortal()
+//    {
+//        loginPage = new LoginPage(driver);
+//        loginPage.setLoginData("sadmin@acuanix.com","P@ssw0rd");
+//        loginPage.clickLoginButton().click();
+//        System.out.println(loginPage.clickLoginButton().getText());
+//    }
 
-    @Test(priority = 1)
-    public void superAdminCanLoginToThePortal()
-    {
-        loginPage = new LoginPage(driver);
-        loginPage.setLoginData("sadmin@acuanix.com","P@ssw0rd");
-        loginPage.clickLoginButton().click();
-        System.out.println(loginPage.clickLoginButton().getText());
-    }
-
-    @Test(dependsOnMethods = "superAdminCanLoginToThePortal")
+    @Test//(dependsOnMethods = "superAdminCanLoginToThePortal")
     public void userCanNavigateToTicketPriority() {
         menu = new Menu(driver);
         menu.getConfigurationsMenuHeaderLocator().click();
         menu.getTicketPriorityMenuLocator().click();
     }
 
-    @Test(dependsOnMethods = "userCanNavigateToTicketPriority")
+    @Test//(dependsOnMethods = "userCanNavigateToTicketPriority")
     public void userCanAddNewPriority() {
         prioritiesPage = new PrioritiesPage(driver);
 
