@@ -26,7 +26,7 @@ public class LoginPage {
         return driver.findElement(loginBtnLocator);
     }
 
-    public By getLoggedInUserName() {
-        return loggedInUserNameLocator;
+    public WebElement getLoggedInUserName() {
+        return driver.findElement(loggedInUserNameLocator);
     }
 }
