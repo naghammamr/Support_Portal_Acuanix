@@ -10,33 +10,43 @@ public class T_PriorityTest extends BaseTests {
     Menu menu;
     PrioritiesPage prioritiesPage;
 
-//    LoginPage loginPage;
-//
-//    @Test(priority = 1)
-//    public void superAdminCanLoginToThePortal()
-//    {
-//        loginPage = new LoginPage(driver);
-//        loginPage.setLoginData("sadmin@acuanix.com","P@ssw0rd");
-//        loginPage.clickLoginButton().click();
-//        System.out.println(loginPage.clickLoginButton().getText());
-//    }
+    LoginPage loginPage;
 
-    @Test//(dependsOnMethods = "superAdminCanLoginToThePortal")
+    @Test(priority = 1)
+    public void superAdminCanLoginToThePortal() {
+        loginPage = new LoginPage(driver);
+        loginPage.setLoginData("sadmin@acuanix.com", "P@ssw0rd");
+        loginPage.clickLoginButton().click();
+        System.out.println(loginPage.clickLoginButton().getText());
+    }
+
+    @Test(dependsOnMethods = "superAdminCanLoginToThePortal")
     public void userCanNavigateToTicketPriority() {
         menu = new Menu(driver);
         menu.getConfigurationsMenuHeaderLocator().click();
         menu.getTicketPriorityMenuLocator().click();
     }
 
-    @Test//(dependsOnMethods = "userCanNavigateToTicketPriority")
+    @Test(dependsOnMethods = "userCanNavigateToTicketPriority")
     public void userCanAddNewPriority() {
         prioritiesPage = new PrioritiesPage(driver);
 
         prioritiesPage.addButton().click();
-        prioritiesPage.selectColor();
-//        prioritiesPage.selectColor2().click();
-//        prioritiesPage.selectColor2().sendKeys("67");
+        prioritiesPage.setPriorityName("TAU");
+        prioritiesPage.setDescription("ANY");
 
+        //prioritiesPage.selectColorJS();
+        prioritiesPage.selectColor();
+
+        //prioritiesPage.selectDefaultValue();
+        prioritiesPage.openReminderHoursPopup();
+        prioritiesPage.setReminderHours("1", "1");
+        prioritiesPage.setReminderHours("2", "1");
+        prioritiesPage.saveReminderHours().click();
+
+        prioritiesPage.setIdPrefixLocator("A");
+
+        prioritiesPage.saveTicketPriority();
     }
 
 }

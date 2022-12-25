@@ -18,7 +18,9 @@ public class PrioritiesPage {
     private By colorFieldLocator = By.id("colorField-3");
     private By idPrefixLocator = By.id("typeFieldTicket-3");
     private By reminderHoursBtnLocator = By.id("editButton-3");
-    private By hoursFieldLocator = By.xpath("//tr[1]//div[@class='ant-input-number-input-wrap']"); //The tr number to be added dynamic
+    private By okBtnLocator = By.id("ok");
+    private By cancel_PopupBtnLocator = By.id("cancel");
+    //private By hoursFieldLocator = By.xpath("//tr[1]//div[@class='ant-input-number-input-wrap']"); //The tr number to be added dynamic
     private By defaultRadioBtnLocator = By.xpath("//input[@class='ant-radio-input']");
     private By saveBtnLocator = By.id("saveButton-3");
     private By cancelBtnLocator = By.id("cancelButton-3");
@@ -27,15 +29,56 @@ public class PrioritiesPage {
         return driver.findElement(addBtnLocator);
     }
 
+    public void setPriorityName(String name) {
+        driver.findElement(nameTextFieldLocator).sendKeys(name);
+    }
+
+    public void setDescription(String description) {
+        driver.findElement(descriptionTextAreaLocator).sendKeys(description);
+    }
+
+    public void setIdPrefixLocator(String idPrefix) {
+        driver.findElement(idPrefixLocator).sendKeys(idPrefix);
+    }
+
+    public void selectDefaultValue() {
+        driver.findElement(defaultRadioBtnLocator).click();
+    }
+
+    public void openReminderHoursPopup() {
+        driver.findElement(reminderHoursBtnLocator).click();
+    }
+
+    public void setReminderHours(String supportIndex, String hour) {
+        driver.findElement(By.xpath("//tr[" + supportIndex + "]//div[@class='ant-input-number-input-wrap']//input")).sendKeys(hour);
+    }
+
+    public WebElement saveReminderHours() {
+        return driver.findElement(okBtnLocator);
+    }
+
+    public WebElement discardSavingReminderHours() {
+        return driver.findElement(cancel_PopupBtnLocator);
+    }
+
+    public void saveTicketPriority() {
+        driver.findElement(saveBtnLocator).click();
+    }
+
+    public void discardSavingTicketPriority() {
+        driver.findElement(cancelBtnLocator).click();
+    }
+
+//    public void selectColorJS() {
+//        driver.findElement(colorFieldLocator).click();
+//        String sampleJS = "document.getElementById('colorField-3').value='#52fff3'";
+//
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript(sampleJS);
+//    }
+
     public void selectColor() {
-        //driver.findElement(colorFieldLocator).click();
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("document.getElementById('colorField-3').value='#FFEEXX'");
+        driver.findElement(colorFieldLocator).sendKeys("#52FFF3");
     }
-
-    public WebElement selectColor2() {
-        return driver.findElement(colorFieldLocator);
-    }
-
 
 }

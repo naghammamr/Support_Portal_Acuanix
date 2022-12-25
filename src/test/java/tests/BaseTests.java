@@ -83,7 +83,7 @@ public class BaseTests {
         driver.manage().addCookie(cookie);
     }
 
-    @AfterSuite(enabled = true)
+    @AfterSuite(enabled = false)
     public void stopDriver() {
         driver.quit();
     }
