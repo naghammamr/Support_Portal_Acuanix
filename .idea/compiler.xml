@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Support_Portal_Acuanix" />
         <module name="SupportPortal" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Support_Portal_Acuanix" target="10" />
+    </bytecodeTargetLevel>
   </component>
 </project>
